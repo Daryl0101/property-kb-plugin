@@ -48,6 +48,7 @@ a { color: var(--accent); }
 header.top { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; }
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: -.01em; color: var(--text); text-decoration: none; }
 .brand svg { width: 28px; height: 28px; }
+.top nav { display: flex; gap: 18px; }
 .top nav a { color: var(--muted); text-decoration: none; font-size: 15px; }
 .top nav a:hover { color: var(--text); }
 .hero { padding: 40px 0 28px; }
@@ -93,6 +94,20 @@ ul.can { list-style: none; padding: 0; margin: 0; display: grid; grid-template-c
 ul.can li { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
 ul.can strong { display: block; font-size: 15px; }
 ul.can span { color: var(--muted); font-size: 14px; }
+.plan {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow);
+  padding: 22px 20px; display: grid; grid-template-columns: minmax(180px, 1fr) 2fr; gap: 20px; align-items: start;
+}
+.plan .name { font-weight: 700; margin: 0 0 6px; }
+.plan .price { margin: 0; font-size: 40px; line-height: 1; font-weight: 750; letter-spacing: -.03em; }
+.plan .price small { font-size: 16px; font-weight: 500; color: var(--muted); letter-spacing: 0; }
+.plan .note { color: var(--muted); font-size: 14px; margin: 10px 0 0; }
+.plan ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.plan li { display: grid; grid-template-columns: 20px 1fr; gap: 8px; font-size: 15px; }
+.plan li::before { content: "\2713"; color: var(--accent); font-weight: 700; }
+@media (max-width: 520px) {
+  .plan { grid-template-columns: 1fr; }
+}
 .feedback {
   margin-top: 36px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;
   background: var(--accent-soft); border-radius: 16px; padding: 18px 20px;
@@ -114,7 +129,7 @@ footer p { margin: 4px 0; }
       <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="currentColor" style="color:var(--accent)"/><path d="M8 24V14l8-6 8 6v10h-5v-6h-6v6z" fill="var(--surface)"/></svg>
       Property KB
     </a>
-    <nav><a href="https://github.com/Daryl0101/property-kb-plugin">GitHub</a></nav>
+    <nav><a href="#pricing">Pricing</a><a href="https://github.com/Daryl0101/property-kb-plugin">GitHub</a></nav>
   </header>
 
   <div class="hero">
@@ -123,7 +138,7 @@ footer p { margin: 4px 0; }
     projects, each one dated and with its source. Works in Claude and ChatGPT.</p>
   </div>
 
-  <div class="card">
+  <div class="card" id="install">
     <h2>Install</h2>
     <div class="tabs" role="tablist" aria-label="How to install">
       <button role="tab" id="tab-command" aria-controls="panel-command" aria-selected="true">Command</button>
@@ -159,6 +174,23 @@ footer p { margin: 4px 0; }
       <li><strong>Find sources</strong><span>The brochure page or admin message behind every fact.</span></li>
       <li><strong>Explain terms</strong><span>SPA, VP, bumi lot, DIBS and other property terms.</span></li>
     </ul>
+  </section>
+
+  <section id="pricing">
+    <h2>Pricing</h2>
+    <div class="plan">
+      <div>
+        <p class="name">Agent</p>
+        <p class="price">RM 25 <small>/ month</small></p>
+        <p class="note">Paid by card on Stripe, once your account is approved.</p>
+      </div>
+      <ul>
+        <li><span>Every tool and skill, in Claude and ChatGPT</span></li>
+        <li><span>All projects in Property KB, with new documents and admin messages added daily</span></li>
+        <li><span>Every fact dated, with its brochure page or message</span></li>
+        <li><span>One account per agent, used from any of your AIs</span></li>
+      </ul>
+    </div>
   </section>
 
   <!--feedback-->
