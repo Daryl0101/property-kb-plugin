@@ -29,7 +29,8 @@ nothing here can answer a property question.
 Status changes apply on the very next tool call; no reconnecting needed after approval or
 payment.
 
-3. **Skills.** If some of the skills listed above are missing, go to *Install* (skills).
+3. **Skills.** If some of the skills listed above are missing, the tools still carry them: call
+   `guide` with a skill's name and follow what it returns. Installing the skills is optional.
 
 ## Install
 
@@ -39,10 +40,10 @@ that address, read it and follow it for their app. In short:
 - **Claude Code / Codex:** install the `property-kb` plugin (it brings the tools and all the
   skills), then sign in when the connector asks.
 - **Claude or ChatGPT apps:** add Property KB as a connector/app with the MCP address
-  `<Property KB address>/mcp`, sign in with Google, give your phone number once. Add the skills
-  from the plugin's `skills/` folder where the app offers skills (ChatGPT: Business, Enterprise
-  and Edu workspaces; Claude: Settings, Skills). App menus change; if a name here is not on
-  screen, look for "connectors", "apps" or "skills".
+  `<Property KB address>/mcp`, sign in with Google, give your phone number once. The skills
+  come through the `guide` tool; installing them as skills is optional (ChatGPT: Business,
+  Enterprise and Edu workspaces; Claude: Settings, Skills). App menus change; if a name here is
+  not on screen, look for "connectors", "apps" or "skills".
 
 Never ask the user for passwords, card numbers or codes: sign-in and payment happen on
 Google's and Stripe's own pages.
