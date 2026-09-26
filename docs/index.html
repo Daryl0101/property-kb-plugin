@@ -99,6 +99,10 @@ ul.can span { color: var(--muted); font-size: 14px; }
   padding: 22px 20px; display: grid; grid-template-columns: minmax(180px, 1fr) 2fr; gap: 20px; align-items: start;
 }
 .plan .name { font-weight: 700; margin: 0 0 6px; }
+.plan .trial {
+  display: inline-block; margin: 0 0 10px; padding: 2px 10px; border-radius: 999px;
+  background: var(--accent-soft); color: var(--accent); font-size: 14px; font-weight: 650;
+}
 .plan .price { margin: 0; font-size: 40px; line-height: 1; font-weight: 750; letter-spacing: -.03em; }
 .plan .price small { font-size: 16px; font-weight: 500; color: var(--muted); letter-spacing: 0; }
 .plan .note { color: var(--muted); font-size: 14px; margin: 10px 0 0; }
@@ -181,8 +185,9 @@ footer p { margin: 4px 0; }
     <div class="plan">
       <div>
         <p class="name">Agent</p>
+        <p class="trial">First 3 months free</p>
         <p class="price">RM 25 <small>/ month</small></p>
-        <p class="note">Paid by card on Stripe, once your account is approved.</p>
+        <p class="note">Card on Stripe once your account is approved; charged only after the free 3 months. Cancel any time before and you pay nothing.</p>
       </div>
       <ul>
         <li><span>Every tool and skill, in Claude and ChatGPT</span></li>

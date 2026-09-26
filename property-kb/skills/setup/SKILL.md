@@ -24,6 +24,7 @@ nothing here can answer a property question.
 | "waiting for approval" | Signed up; the owner has not verified them yet | Nothing: the owner will contact them on the phone number they gave |
 | "not approved" | The owner refused the account | Contact the owner |
 | "approved. Subscribe…" with a link | Verified, no subscription yet | Open the link, pay, then ask the question again |
+| "approved. Start your free…" with a link | Verified; a free trial is offered | Open the link and enter a card (charged only when the trial ends), then ask the question again |
 | "payment did not go through" with a link | The card failed | Open the link to update payment |
 
 Status changes apply on the very next tool call; no reconnecting needed after approval or
