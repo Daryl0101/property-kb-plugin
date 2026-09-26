@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Install Property KB</title>
+<meta name="description" content="How to install Property KB in Claude, ChatGPT, Claude Code or Codex. Written for your AI to follow.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23155e54'/%3E%3Cpath d='M8 24V14l8-6 8 6v10h-5v-6h-6v6z' fill='%23fff'/%3E%3C/svg%3E">
+<style>
+:root {
+  --bg: #f7f5f0;
+  --surface: #ffffff;
+  --text: #1c1b18;
+  --muted: #625e55;
+  --line: #e4dfd4;
+  --accent: #155e54;
+  --accent-soft: #e3efec;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121413;
+    --surface: #1b1e1d;
+    --text: #ecebe6;
+    --muted: #a4a29a;
+    --line: #2d3230;
+    --accent: #5fc2ae;
+    --accent-soft: #1d3430;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+a { color: var(--accent); overflow-wrap: anywhere; }
+.wrap { max-width: 720px; margin: 0 auto; padding: 0 16px 48px; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 20px 0 8px; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--text); text-decoration: none; }
+.brand svg { width: 28px; height: 28px; }
+header nav a { color: var(--muted); text-decoration: none; font-size: 15px; }
+main h1 { font-size: clamp(28px, 5vw, 38px); line-height: 1.15; letter-spacing: -.02em; margin: 28px 0 14px; }
+main h2 {
+  font-size: 19px; letter-spacing: -.01em; margin: 32px 0 10px; padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+main p, main li { color: var(--text); }
+main ol, main ul { padding-left: 22px; }
+main li { margin: 6px 0; }
+main strong { font-weight: 650; }
+main code {
+  font: 14px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  background: var(--accent-soft); padding: 1px 6px; border-radius: 6px; overflow-wrap: anywhere;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="https://daryl0101.github.io/property-kb-plugin/">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="currentColor" style="color:var(--accent)"/><path d="M8 24V14l8-6 8 6v10h-5v-6h-6v6z" fill="var(--surface)"/></svg>
+      Property KB
+    </a>
+    <nav><a href="https://daryl0101.github.io/property-kb-plugin/">Website</a></nav>
+  </header>
+  <main>
+<h1>Installing Property KB</h1>
+<p>Property KB gives a property agent's AI current, dated, referenced facts on Malaysian new
+property projects. It has <strong>tools</strong> (an MCP server at <code>https://property-kb-plugin-64268236583.us-central1.run.app/mcp</code>) and <strong>skills</strong>
+(setup, client-matching, pricing-quote, affordability, mock-call-setup, judge-call, glossary).
+The tools carry the skills too (the <code>guide</code> tool), so connecting the MCP server is enough;
+installing the skills is optional.
+If you are an AI helping someone install it, follow the section for the app you are in, one
+step at a time, and tell the user what to click. Never ask for passwords, card numbers or
+codes: sign-in happens on Google's page and payment on Stripe's.</p>
+<h2>Claude Code, or Codex</h2>
+<ol>
+<li>Add the marketplace and install the plugin (tools and skills together):
+<code>claude plugin marketplace add Daryl0101/property-kb-plugin</code> then
+<code>claude plugin install property-kb@property-kb</code>.</li>
+<li>Start a new session; when Property KB asks to sign in, open the link and sign in with Google.</li>
+</ol>
+<h2>Claude (web or desktop app)</h2>
+<ol>
+<li>Settings → Connectors → add a custom connector with the URL <code>https://property-kb-plugin-64268236583.us-central1.run.app/mcp</code>.</li>
+<li>Connect, then sign in with Google and give your phone number once.</li>
+<li>Optional, skills: download <a href="https://github.com/Daryl0101/property-kb-plugin">https://github.com/Daryl0101/property-kb-plugin</a> and, in Settings → Skills (or
+Capabilities), upload each folder of <code>property-kb/skills/</code> as a skill, or ask your
+organisation's admin to install the plugin. Without them the AI uses the <code>guide</code> tool.</li>
+</ol>
+<h2>ChatGPT</h2>
+<p>If you are ChatGPT: you cannot add Property KB from a chat (it is not in the Plugins directory
+yet, and a custom app is added in Settings). Do not say it is installed. Ask which plan the user
+has, if you do not know, and give them the steps for it:</p>
+<ul>
+<li><strong>Free or Go:</strong> not available yet. These plans cannot add custom apps (it needs developer
+mode). Say so plainly; they can use Property KB in Claude, or on ChatGPT Plus.</li>
+<li><strong>Plus or Pro</strong>, on chatgpt.com in a browser (not the phone app):
+<ol>
+<li>Settings → Security and login → turn on <strong>Developer mode</strong>.</li>
+<li>Settings → <strong>Plugins</strong> (older versions: Apps) → <strong>+</strong>. Name: <code>Property KB</code>; MCP server
+URL: <code>https://property-kb-plugin-64268236583.us-central1.run.app/mcp</code>; authentication: OAuth if asked. Create it.</li>
+<li>Sign in with Google when asked, and give your phone number once.</li>
+<li>In a new chat, pick Property KB from the <strong>+</strong> menu (or type @Property KB).</li>
+</ol>
+</li>
+<li><strong>Business:</strong> only a workspace admin can add it: Workspace settings → Apps → Create, with
+the MCP server URL <code>https://property-kb-plugin-64268236583.us-central1.run.app/mcp</code>, then publish it to the workspace. Members then connect it
+and sign in with Google.</li>
+<li><strong>Enterprise or Edu:</strong> an admin, or a member the admin allowed developer mode, adds it the
+same way.</li>
+</ul>
+<p>Skills are optional: the tools include <code>guide</code>, which gives the same instructions. Business,
+Enterprise and Edu workspaces can also add the folders of <code>property-kb/skills/</code> from
+<a href="https://github.com/Daryl0101/property-kb-plugin">https://github.com/Daryl0101/property-kb-plugin</a> as skills.</p>
+<h2>After signing in</h2>
+<p>New accounts wait for the owner to verify them; the owner contacts you on the phone number you
+gave. Once verified, the tools reply with a link to subscribe (or to start a free trial, when
+one is offered: the card is charged only when it ends); after that, ask your question again.
+The <code>setup</code> skill checks all of this: ask your AI to &quot;check my Property KB setup&quot;.</p>
+<p>Menus change between app versions; if a name above is not on screen, look for &quot;connectors&quot;,
+&quot;apps&quot;, &quot;plugins&quot; or &quot;skills&quot;.</p>
+
+  </main>
+</div>
+</body>
+</html>

@@ -35,16 +35,21 @@ payment.
 
 ## Install
 
-The install page, written for AIs, is at `<Property KB address>/install`; if the user gives you
-that address, read it and follow it for their app. In short:
+The install page, written for AIs, is at `<Property KB address>/install` and on the website
+(`https://daryl0101.github.io/property-kb-plugin/install/`); read it and follow it for the
+user's app. In short:
 
 - **Claude Code / Codex:** install the `property-kb` plugin (it brings the tools and all the
   skills), then sign in when the connector asks.
-- **Claude or ChatGPT apps:** add Property KB as a connector/app with the MCP address
-  `<Property KB address>/mcp`, sign in with Google, give your phone number once. The skills
-  come through the `guide` tool; installing them as skills is optional (ChatGPT: Business,
-  Enterprise and Edu workspaces; Claude: Settings, Skills). App menus change; if a name here is
-  not on screen, look for "connectors", "apps" or "skills".
+- **Claude app:** add Property KB as a custom connector with the MCP address
+  `<Property KB address>/mcp`, sign in with Google, give your phone number once.
+- **ChatGPT:** Free and Go plans cannot add it yet. Plus and Pro, on the web: Settings →
+  Security and login → Developer mode on; then Settings → Plugins → + with the MCP address
+  `<Property KB address>/mcp`; sign in with Google. Business: only a workspace admin can add
+  it (Workspace settings → Apps → Create, then publish).
+- Either app: the skills come through the `guide` tool; installing them as skills is optional
+  (ChatGPT: Business, Enterprise and Edu workspaces; Claude: Settings, Skills). App menus
+  change; if a name here is not on screen, look for "connectors", "plugins", "apps" or "skills".
 
 Never ask the user for passwords, card numbers or codes: sign-in and payment happen on
 Google's and Stripe's own pages.
