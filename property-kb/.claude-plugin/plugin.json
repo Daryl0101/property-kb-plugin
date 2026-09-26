@@ -1,0 +1,8 @@
+{
+  "name": "property-kb",
+  "displayName": "Property KB",
+  "version": "0.1.0",
+  "description": "Current, dated, referenced facts on Malaysian new property projects for property agents: search, prices and offers, availability, what's new, plus skills for client matching, quotes, affordability, mock calls and call reviews.",
+  "author": { "name": "Property KB" },
+  "keywords": ["property", "real-estate", "malaysia", "agents"]
+}

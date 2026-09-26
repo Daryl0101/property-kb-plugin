@@ -1,0 +1,9 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "property-kb": {
+      "type": "streamable-http",
+      "url": "https://property-kb-plugin-64268236583.us-central1.run.app/mcp"
+    }
+  }
+}

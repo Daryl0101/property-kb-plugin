@@ -1,0 +1,12 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "property-kb",
+  "version": "0.1.0",
+  "description": "Current, dated, referenced facts on Malaysian new property projects for property agents, with skills for client matching, quotes, affordability, mock calls and call reviews.",
+  "author": { "name": "Property KB" },
+  "extensions": {
+    "com.openai": {
+      "interface": { "displayName": "Property KB", "category": "Productivity" }
+    }
+  }
+}

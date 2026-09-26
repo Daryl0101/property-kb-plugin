@@ -1,0 +1,14 @@
+{
+  "name": "property-kb",
+  "description": "Property KB: Malaysian new-property facts and skills for property agents.",
+  "owner": {
+    "name": "Property KB"
+  },
+  "plugins": [
+    {
+      "name": "property-kb",
+      "source": "./property-kb",
+      "description": "Malaysian new-property facts and skills for property agents."
+    }
+  ]
+}

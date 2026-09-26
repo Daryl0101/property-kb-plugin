@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "property-kb": {
+      "type": "http",
+      "url": "https://property-kb-plugin-64268236583.us-central1.run.app/mcp"
+    }
+  }
+}
