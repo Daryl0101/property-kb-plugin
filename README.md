@@ -6,6 +6,7 @@ with skills for client matching, price quotes, affordability, mock calls and cal
 This repository holds only the installable plugin: manifests and skills. Using the tools needs
 a Property KB account: sign in with Google when your AI asks, then wait for approval.
 
+- Website: https://daryl0101.github.io/property-kb-plugin/
 - Install instructions (written for your AI to follow): https://property-kb-plugin-64268236583.us-central1.run.app/install
 - Claude Code: `claude plugin marketplace add Daryl0101/property-kb-plugin` then
   `claude plugin install property-kb@property-kb`

@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Property KB</title>
+<meta name="description" content="Current, dated, referenced facts on Malaysian new property projects, inside your AI. For property agents, in Claude and ChatGPT.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23155e54'/%3E%3Cpath d='M8 24V14l8-6 8 6v10h-5v-6h-6v6z' fill='%23fff'/%3E%3C/svg%3E">
+<style>
+:root {
+  --bg: #f7f5f0;
+  --surface: #ffffff;
+  --text: #1c1b18;
+  --muted: #625e55;
+  --line: #e4dfd4;
+  --accent: #155e54;
+  --accent-soft: #e3efec;
+  --on-accent: #ffffff;
+  --code-bg: #1d2422;
+  --code-text: #e8f0ed;
+  --shadow: 0 1px 2px rgba(28, 27, 24, .05), 0 8px 24px rgba(28, 27, 24, .06);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121413;
+    --surface: #1b1e1d;
+    --text: #ecebe6;
+    --muted: #a4a29a;
+    --line: #2d3230;
+    --accent: #5fc2ae;
+    --accent-soft: #1d3430;
+    --on-accent: #0d1f1b;
+    --code-bg: #0c0f0e;
+    --code-text: #e8f0ed;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .25);
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+a { color: var(--accent); }
+.wrap { max-width: 720px; margin: 0 auto; padding: 0 16px; }
+header.top { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: -.01em; color: var(--text); text-decoration: none; }
+.brand svg { width: 28px; height: 28px; }
+.top nav a { color: var(--muted); text-decoration: none; font-size: 15px; }
+.top nav a:hover { color: var(--text); }
+.hero { padding: 40px 0 28px; }
+.hero h1 { font-size: clamp(30px, 6vw, 44px); line-height: 1.12; letter-spacing: -.025em; margin: 0 0 16px; }
+.hero p { color: var(--muted); font-size: 18px; margin: 0; max-width: 58ch; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); padding: 20px; }
+.card h2 { font-size: 17px; margin: 0 0 14px; }
+.tabs { display: inline-flex; background: var(--bg); border: 1px solid var(--line); border-radius: 999px; padding: 3px; margin-bottom: 14px; }
+.tabs button {
+  appearance: none; border: 0; background: transparent; color: var(--muted);
+  font: inherit; font-size: 15px; font-weight: 600; padding: 7px 16px; border-radius: 999px; cursor: pointer;
+}
+.tabs button[aria-selected="true"] { background: var(--accent); color: var(--on-accent); }
+.tabs button:focus-visible, .copy:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.panel[hidden] { display: none; }
+.code {
+  position: relative; background: var(--code-bg); color: var(--code-text); border-radius: 12px;
+  padding: 14px 92px 14px 16px; font: 14px/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  overflow-wrap: anywhere; white-space: pre-wrap;
+}
+.copy {
+  position: absolute; top: 10px; right: 10px; appearance: none; border: 1px solid rgba(255, 255, 255, .18);
+  background: rgba(255, 255, 255, .08); color: var(--code-text); font: 600 13px/1 system-ui, sans-serif;
+  padding: 8px 12px; border-radius: 8px; cursor: pointer;
+}
+.copy:hover { background: rgba(255, 255, 255, .16); }
+@media (max-width: 520px) {
+  .code { padding: 48px 14px 14px; }
+}
+.hint { color: var(--muted); font-size: 14px; margin: 10px 0 0; }
+.hint code { font-size: 13px; background: var(--accent-soft); padding: 1px 6px; border-radius: 6px; overflow-wrap: anywhere; }
+section { padding: 36px 0 0; }
+section > h2 { font-size: 20px; letter-spacing: -.01em; margin: 0 0 14px; }
+ol.steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; counter-reset: step; }
+ol.steps li { counter-increment: step; display: grid; grid-template-columns: 32px 1fr; gap: 12px; align-items: start; }
+ol.steps li::before {
+  content: counter(step); display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%;
+  background: var(--accent-soft); color: var(--accent); font-weight: 700; font-size: 15px;
+}
+ol.steps strong { display: block; }
+ol.steps span { color: var(--muted); font-size: 15px; }
+ul.can { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+ul.can li { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+ul.can strong { display: block; font-size: 15px; }
+ul.can span { color: var(--muted); font-size: 14px; }
+.feedback {
+  margin-top: 36px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;
+  background: var(--accent-soft); border-radius: 16px; padding: 18px 20px;
+}
+.feedback p { margin: 0; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: var(--on-accent);
+  text-decoration: none; font-weight: 600; padding: 10px 16px; border-radius: 10px;
+}
+.btn svg { width: 18px; height: 18px; }
+footer { color: var(--muted); font-size: 14px; padding: 36px 0 40px; }
+footer p { margin: 4px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="./">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="currentColor" style="color:var(--accent)"/><path d="M8 24V14l8-6 8 6v10h-5v-6h-6v6z" fill="var(--surface)"/></svg>
+      Property KB
+    </a>
+    <nav><a href="https://github.com/Daryl0101/property-kb-plugin">GitHub</a></nav>
+  </header>
+
+  <div class="hero">
+    <h1>Malaysian new-property facts, inside your AI.</h1>
+    <p>For property agents. Your AI answers with current prices, offers and rules for new
+    projects, each one dated and with its source. Works in Claude and ChatGPT.</p>
+  </div>
+
+  <div class="card">
+    <h2>Install</h2>
+    <div class="tabs" role="tablist" aria-label="How to install">
+      <button role="tab" id="tab-command" aria-controls="panel-command" aria-selected="true">Command</button>
+      <button role="tab" id="tab-prompt" aria-controls="panel-prompt" aria-selected="false" tabindex="-1">Ask your AI</button>
+    </div>
+    <div class="panel" id="panel-command" role="tabpanel" aria-labelledby="tab-command">
+      <div class="code"><span id="command">claude plugin marketplace add Daryl0101/property-kb-plugin &amp;&amp; claude plugin install property-kb@property-kb</span><button class="copy" data-copy="command">Copy</button></div>
+      <p class="hint">Run it in a terminal where Claude Code is installed. It adds the tools and the skills together.</p>
+    </div>
+    <div class="panel" id="panel-prompt" role="tabpanel" aria-labelledby="tab-prompt" hidden>
+      <div class="code"><span id="prompt">Install the Property KB plugin for me. Read https://property-kb-plugin-64268236583.us-central1.run.app/install and follow the steps for the app you are running in, one at a time.</span><button class="copy" data-copy="prompt">Copy</button></div>
+      <p class="hint">Paste it into Claude, ChatGPT or Codex. Your AI walks you through the setup for the app you are in.
+      To add it by hand, the connector address is <code>https://property-kb-plugin-64268236583.us-central1.run.app/mcp</code>.</p>
+    </div>
+  </div>
+
+  <section>
+    <h2>After installing</h2>
+    <ol class="steps">
+      <li><div><strong>Sign in with Google</strong><span>Your AI opens the sign-in page the first time. Give your phone number once.</span></div></li>
+      <li><div><strong>Wait for approval</strong><span>Property KB is for property agents. We check and approve new accounts, and may call you first.</span></div></li>
+      <li><div><strong>Subscribe</strong><span>Once approved, your AI gives you a link to pay by card on Stripe. Then ask your question again.</span></div></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>What your AI can do with it</h2>
+    <ul class="can">
+      <li><strong>Match clients</strong><span>Find projects and layouts that fit a buyer's budget, size and area.</span></li>
+      <li><strong>Quote prices</strong><span>Work out a unit's price with the offers that apply today.</span></li>
+      <li><strong>Check affordability</strong><span>Loan, instalment, stamp duty and upfront costs.</span></li>
+      <li><strong>Practise calls</strong><span>Role-play a buyer, then get a review of the call.</span></li>
+      <li><strong>Find sources</strong><span>The brochure page or admin message behind every fact.</span></li>
+      <li><strong>Explain terms</strong><span>SPA, VP, bumi lot, DIBS and other property terms.</span></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>Facts with their dates and sources, not advice. Check anything important with the developer.</p>
+    <p>The plugin's skills and manifests are open at <a href="https://github.com/Daryl0101/property-kb-plugin">Daryl0101/property-kb-plugin</a>.</p>
+  </footer>
+</div>
+<script>
+(function () {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+  function select(tab, focus) {
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+    if (focus) tab.focus();
+    try { localStorage.setItem('install-tab', tab.id); } catch (e) {}
+  }
+  tabs.forEach(function (tab, i) {
+    tab.addEventListener('click', function () { select(tab, false); });
+    tab.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        var next = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
+        select(next, true);
+      }
+    });
+  });
+  try {
+    var saved = document.getElementById(localStorage.getItem('install-tab') || '');
+    if (saved && tabs.indexOf(saved) >= 0) select(saved, false);
+  } catch (e) {}
+
+  document.querySelectorAll('.copy').forEach(function (button) {
+    button.addEventListener('click', function () {
+      var text = document.getElementById(button.getAttribute('data-copy')).textContent;
+      function done(ok) {
+        button.textContent = ok ? 'Copied' : 'Select and copy';
+        setTimeout(function () { button.textContent = 'Copy'; }, 1800);
+      }
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(false); });
+      } else {
+        var area = document.createElement('textarea');
+        area.value = text;
+        area.setAttribute('readonly', '');
+        area.style.position = 'fixed';
+        area.style.opacity = '0';
+        document.body.appendChild(area);
+        area.select();
+        var ok = false;
+        try { ok = document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(area);
+        done(ok);
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
