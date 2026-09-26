@@ -96,20 +96,21 @@ ul.can strong { display: block; font-size: 15px; }
 ul.can span { color: var(--muted); font-size: 14px; }
 .plan {
   background: var(--surface); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow);
-  padding: 22px 20px; display: grid; grid-template-columns: minmax(180px, 1fr) 2fr; gap: 20px; align-items: start;
+  padding: 22px 20px; display: grid; grid-template-columns: minmax(300px, 1fr) 1.4fr; gap: 20px; align-items: start;
 }
 .plan .name { font-weight: 700; margin: 0 0 6px; }
-.plan .trial {
-  display: inline-block; margin: 0 0 10px; padding: 2px 10px; border-radius: 999px;
-  background: var(--accent-soft); color: var(--accent); font-size: 14px; font-weight: 650;
+.plan .price s {
+  font-size: 22px; font-weight: 500; color: var(--muted); letter-spacing: 0; margin-right: 4px;
+  text-decoration-thickness: 2px;
 }
+.plan .after { margin: 8px 0 0; font-size: 15px; color: var(--muted); }
 .plan .price { margin: 0; font-size: 40px; line-height: 1; font-weight: 750; letter-spacing: -.03em; }
-.plan .price small { font-size: 16px; font-weight: 500; color: var(--muted); letter-spacing: 0; }
+.plan .price small { font-size: 16px; font-weight: 500; color: var(--muted); letter-spacing: 0; white-space: nowrap; }
 .plan .note { color: var(--muted); font-size: 14px; margin: 10px 0 0; }
 .plan ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
 .plan li { display: grid; grid-template-columns: 20px 1fr; gap: 8px; font-size: 15px; }
 .plan li::before { content: "\2713"; color: var(--accent); font-weight: 700; }
-@media (max-width: 520px) {
+@media (max-width: 680px) {
   .plan { grid-template-columns: 1fr; }
 }
 .feedback {
@@ -185,9 +186,11 @@ footer p { margin: 4px 0; }
     <div class="plan">
       <div>
         <p class="name">Agent</p>
-        <p class="trial">First 3 months free</p>
-        <p class="price">RM 25 <small>/ month</small></p>
+        
+        <p class="price"><s>RM 25</s> RM 0 <small>/ month for 3 months</small></p>
+        <p class="after">RM 25 / month after</p>
         <p class="note">Card on Stripe once your account is approved; charged only after the free 3 months. Cancel any time before and you pay nothing.</p>
+        
       </div>
       <ul>
         <li><span>Every tool and skill, in Claude and ChatGPT</span></li>
