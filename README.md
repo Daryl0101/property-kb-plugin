@@ -15,3 +15,5 @@ a Property KB account: sign in with Google when your AI asks, then wait for appr
 
 Generated from the Property KB code repository (`pkb plugin export`); changes made here are
 overwritten.
+
+Feedback: https://wa.link/xgiqt7
