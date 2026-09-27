@@ -90,10 +90,17 @@ ol.steps li::before {
 }
 ol.steps strong { display: block; }
 ol.steps span { color: var(--muted); font-size: 15px; }
-ul.can { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
-ul.can li { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
-ul.can strong { display: block; font-size: 15px; }
-ul.can span { color: var(--muted); font-size: 14px; }
+ul.impact { list-style: none; padding: 0; margin: 0 0 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 10px; }
+ul.impact li { border-left: 3px solid var(--accent); padding: 2px 0 2px 14px; }
+ul.impact strong { display: block; font-size: 16px; }
+ul.impact span { color: var(--muted); font-size: 15px; }
+.lead { color: var(--muted); margin: -4px 0 16px; }
+ol.cases { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+ol.cases li { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+ol.cases h3 { font-size: 16px; margin: 0 0 2px; }
+ol.cases p { color: var(--muted); font-size: 15px; margin: 0 0 12px; }
+ol.cases .code { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 15px; }
+.payoff { color: var(--muted); font-size: 15px; margin: 12px 0 0; }
 .plan {
   background: var(--surface); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow);
   padding: 22px 20px; display: grid; grid-template-columns: minmax(300px, 1fr) 1.4fr; gap: 20px; align-items: start;
@@ -134,7 +141,7 @@ footer p { margin: 4px 0; }
       <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="currentColor" style="color:var(--accent)"/><path d="M8 24V14l8-6 8 6v10h-5v-6h-6v6z" fill="var(--surface)"/></svg>
       Property KB
     </a>
-    <nav><a href="#pricing">Pricing</a><a href="https://github.com/Daryl0101/property-kb-plugin">GitHub</a></nav>
+    <nav><a href="#examples">Examples</a><a href="#pricing">Pricing</a><a href="https://github.com/Daryl0101/property-kb-plugin">GitHub</a></nav>
   </header>
 
   <div class="hero">
@@ -142,6 +149,13 @@ footer p { margin: 4px 0; }
     <p>For property agents. Your AI answers with current prices, offers and rules for new
     projects, each one dated and with its source. Works in Claude and ChatGPT.</p>
   </div>
+
+  <ul class="impact" aria-label="What changes for you">
+    <li><strong>Answer in minutes</strong><span>One question instead of opening brochures and scrolling the project's Telegram group.</span></li>
+    <li><strong>Quote the right price</strong><span>Only today's offers, with the arithmetic done for you and a warning when an offer has expired or doesn't apply.</span></li>
+    <li><strong>Hear about changes first</strong><span>New brochures are read every hour and admin messages every day. Ask what's new.</span></li>
+    <li><strong>Show where it came from</strong><span>Every figure has its date and the brochure page or message behind it.</span></li>
+  </ul>
 
   <div class="card" id="install">
     <h2>Install</h2>
@@ -169,16 +183,43 @@ footer p { margin: 4px 0; }
     </ol>
   </section>
 
-  <section>
-    <h2>What your AI can do with it</h2>
-    <ul class="can">
-      <li><strong>Match clients</strong><span>Find projects and layouts that fit a buyer's budget, size and area.</span></li>
-      <li><strong>Quote prices</strong><span>Work out a unit's price with the offers that apply today.</span></li>
-      <li><strong>Check affordability</strong><span>Loan, instalment, stamp duty and upfront costs.</span></li>
-      <li><strong>Practise calls</strong><span>Role-play a buyer, then get a review of the call.</span></li>
-      <li><strong>Find sources</strong><span>The brochure page or admin message behind every fact.</span></li>
-      <li><strong>Explain terms</strong><span>SPA, VP, bumi lot, DIBS and other property terms.</span></li>
-    </ul>
+  <section id="examples">
+    <h2>Try it</h2>
+    <p class="lead">Copy a prompt into Claude or ChatGPT once Property KB is connected. Change the
+    names and numbers to your client's.</p>
+    <ol class="cases">
+      <li>
+        <h3>Shortlist projects for a client</h3>
+        <p>Projects and layouts that fit, why each fits, and the perks on offer today.</p>
+        <div class="code"><span id="ex-match">My client is a Malaysian couple buying to live in. Budget RM700k, at least 3 bedrooms, near an LRT station around Bukit Jalil or Cheras. Shortlist projects from Property KB with their current offers.</span><button class="copy" data-copy="ex-match">Copy</button></div>
+      </li>
+      <li>
+        <h3>Quote the price after offers</h3>
+        <p>SPA price after discounts, nett price after rebates, the conditions and any warnings.</p>
+        <div class="code"><span id="ex-quote">What does a non-bumi first-time buyer pay for the smallest 3-bedroom layout at The Queenswoodz after all current discounts and rebates? Show the breakdown with sources.</span><button class="copy" data-copy="ex-quote">Copy</button></div>
+      </li>
+      <li>
+        <h3>Catch up on what&#x27;s new</h3>
+        <p>New launches, bumi releases, rebates and deadlines from the admins, dated.</p>
+        <div class="code"><span id="ex-new">What&#x27;s new at The Queenswoodz this week? Summarise the admins&#x27; updates with their dates, and tell me what changed since last week.</span><button class="copy" data-copy="ex-new">Copy</button></div>
+      </li>
+      <li>
+        <h3>Work out what a client can afford</h3>
+        <p>Maximum price, monthly instalment, down payment and stamp duty, with the working.</p>
+        <div class="code"><span id="ex-afford">My client earns RM9,000 a month after tax and pays RM1,200 a month for a car loan. What price can they afford at 4.2% over 35 years, and how much do they need upfront?</span><button class="copy" data-copy="ex-afford">Copy</button></div>
+      </li>
+      <li>
+        <h3>Practise a sales call</h3>
+        <p>Your AI plays a Malaysian buyer who knows the real facts. Say &quot;review&quot; at the end.</p>
+        <div class="code"><span id="ex-practise">Set up a mock WhatsApp chat. You are a sceptical bumiputera buyer looking at The Aldenz, comparing it with other projects. Hard difficulty.</span><button class="copy" data-copy="ex-practise">Copy</button></div>
+      </li>
+      <li>
+        <h3>Check a real call before you follow up</h3>
+        <p>Every price, perk and promise you made, marked right, wrong or outdated, with a score.</p>
+        <div class="code"><span id="ex-review">Review this call with my client. Check every price, offer and promise I made against Property KB, then score the call and tell me what to fix: [paste the transcript or WhatsApp chat]</span><button class="copy" data-copy="ex-review">Copy</button></div>
+      </li>
+    </ol>
+    <p class="hint">Unsure of a term? Ask "What do APDL and VP mean, in words I can use with a buyer?"</p>
   </section>
 
   <section id="pricing">
@@ -199,6 +240,7 @@ footer p { margin: 4px 0; }
         <li><span>One account per agent, used from any of your AIs</span></li>
       </ul>
     </div>
+    <p class="payoff">One extra sale a year, or one quote you don't have to correct, pays for it many times over.</p>
   </section>
 
   <!--feedback-->
