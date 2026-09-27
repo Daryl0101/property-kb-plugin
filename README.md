@@ -1,7 +1,8 @@
 # Property KB plugin
 
 Current, dated, referenced facts on Malaysian new property projects for property agents' AIs,
-with skills for client matching, price quotes, affordability, mock calls and call reviews.
+with skills for client matching, location questions, price quotes, affordability, mock calls
+and call reviews.
 
 This repository holds only the installable plugin: manifests and skills. Using the tools needs
 a Property KB account: sign in with Google when your AI asks, then wait for approval.

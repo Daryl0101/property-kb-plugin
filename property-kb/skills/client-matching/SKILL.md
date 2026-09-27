@@ -10,7 +10,8 @@ description: Shortlist Malaysian new property projects for a client's profile (b
 | Need | Why it matters | Becomes |
 |---|---|---|
 | Budget (SPA price or monthly) | the hard ceiling | `price_max` (monthly: use the `affordability` skill first) |
-| Where (areas, or near work/school/LRT) | commute, schools | `area`, or `near_category` + `near_within_m`, or `near_place` |
+| Where (areas) | the address they want | `area` (loose; `area_strict` for inside the official boundary only) |
+| Near something (work, school, LRT, a highway, a supermarket brand) | commute, daily life | `near_category`, `near_place`, `near_route` ("LDP", "Kelana Jaya Line"), `near_brand` or `near_point` ("lat,lon" of an office), with `near_within_m` |
 | Own stay or investment | layouts, tenure, facilities | soft `query` text |
 | Bedrooms, size | family size | `bedrooms_min`, `built_up_min_sqft` |
 | Buyer group: bumiputera, Malaysian, foreigner | quota, discounts, foreigner minimum price | `buyer_group` |
@@ -32,9 +33,13 @@ For each project: why it fits (the filters it met and the text it matched), the 
 with SPA prices, the current perks, and what is uncertain. Quote figures exactly as given, with
 their "as of" date and reference [n]. Map distances are estimates; say so.
 
+Each hit says why it counts for an area (`in_area`: official, or loose and why) and gives the
+project's `location`. For a commute to work: `near_within_m` is a straight line, so filter with
+a generous radius, then check the shortlist with `distance` (rail route) and your own maps (road
+time), as the `location-pitch` skill says.
+
 Then offer next steps: a quote (`pricing-quote`), what's new in the project's Telegram group
-(`search_sources` with the project and no query), or nearby schools and stations
-(`get` with `include=["nearby:school_international"]`).
+(`search_sources` with the project and no query), or what is around each project (`nearby`).
 
 ## Rules
 
