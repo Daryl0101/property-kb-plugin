@@ -45,14 +45,23 @@ body {
 }
 a { color: var(--accent); }
 .wrap { max-width: 720px; margin: 0 auto; padding: 0 16px; }
-header.top { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; }
-.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: -.01em; color: var(--text); text-decoration: none; }
+header.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 20px 0; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: -.01em; color: var(--text); text-decoration: none; white-space: nowrap; }
 .brand svg { width: 28px; height: 28px; }
 .top nav { display: flex; gap: 18px; }
-.top nav a { color: var(--muted); text-decoration: none; font-size: 15px; }
+.top nav a { color: var(--muted); text-decoration: none; font-size: 15px; padding: 10px 0; }
 .top nav a:hover { color: var(--text); }
+/* Phones: a tighter nav beside the name; below 400px GitHub is left to the footer. */
+@media (max-width: 420px) {
+  .top nav { gap: 14px; }
+  .top nav a { font-size: 14px; }
+}
+@media (max-width: 399px) {
+  .top nav .github { display: none; }
+}
 .hero { padding: 40px 0 28px; }
-.hero h1 { font-size: clamp(30px, 6vw, 44px); line-height: 1.12; letter-spacing: -.025em; margin: 0 0 16px; }
+.hero h1 { font-size: clamp(30px, 6vw, 44px); line-height: 1.12; letter-spacing: -.025em; margin: 0 0 16px; text-wrap: balance; }
+.nowrap { white-space: nowrap; }
 .hero p { color: var(--muted); font-size: 18px; margin: 0; max-width: 58ch; }
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); padding: 20px; }
 .card h2 { font-size: 17px; margin: 0 0 14px; }
@@ -90,7 +99,7 @@ ol.steps li::before {
 }
 ol.steps strong { display: block; }
 ol.steps span { color: var(--muted); font-size: 15px; }
-ul.impact { list-style: none; padding: 0; margin: 0 0 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 10px; }
+ul.impact { list-style: none; padding: 0; margin: 0 0 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 10px; }
 ul.impact li { border-left: 3px solid var(--accent); padding: 2px 0 2px 14px; }
 ul.impact strong { display: block; font-size: 16px; }
 ul.impact span { color: var(--muted); font-size: 15px; }
@@ -113,7 +122,6 @@ ol.cases .code { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Hel
 .plan .after { margin: 8px 0 0; font-size: 15px; color: var(--muted); }
 .plan .price { margin: 0; font-size: 40px; line-height: 1; font-weight: 750; letter-spacing: -.03em; }
 .plan .price small { font-size: 16px; font-weight: 500; color: var(--muted); letter-spacing: 0; white-space: nowrap; }
-.plan .note { color: var(--muted); font-size: 14px; margin: 10px 0 0; }
 .plan ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
 .plan li { display: grid; grid-template-columns: 20px 1fr; gap: 8px; font-size: 15px; }
 .plan li::before { content: "\2713"; color: var(--accent); font-weight: 700; }
@@ -141,20 +149,20 @@ footer p { margin: 4px 0; }
       <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="currentColor" style="color:var(--accent)"/><path d="M8 24V14l8-6 8 6v10h-5v-6h-6v6z" fill="var(--surface)"/></svg>
       Property KB
     </a>
-    <nav><a href="#examples">Examples</a><a href="#pricing">Pricing</a><a href="https://github.com/Daryl0101/property-kb-plugin">GitHub</a></nav>
+    <nav><a href="#examples">Examples</a><a href="#pricing">Pricing</a><a class="github" href="https://github.com/Daryl0101/property-kb-plugin">GitHub</a></nav>
   </header>
 
   <div class="hero">
-    <h1>Malaysian new-property facts, inside your AI.</h1>
+    <h1>Malaysian <span class="nowrap">new-property</span> facts, inside your AI.</h1>
     <p>For property agents. Your AI answers with current prices, offers and rules for new
     projects, each one dated and with its source. Works in Claude and ChatGPT.</p>
   </div>
 
   <ul class="impact" aria-label="What changes for you">
-    <li><strong>Answer in minutes</strong><span>One question instead of opening brochures and scrolling the project's Telegram group.</span></li>
-    <li><strong>Quote the right price</strong><span>Only today's offers, with the arithmetic done for you and a warning when an offer has expired or doesn't apply.</span></li>
-    <li><strong>Hear about changes first</strong><span>New brochures are read every hour and admin messages every day. Ask what's new.</span></li>
-    <li><strong>Show where it came from</strong><span>Every figure has its date and the brochure page or message behind it.</span></li>
+    <li><strong>Still digging through brochures and Telegram?</strong><span>Ask one question and have the answer in minutes.</span></li>
+    <li><strong>Is that offer still valid?</strong><span>Only today's offers, with the arithmetic done for you and a warning when an offer has expired or doesn't apply.</span></li>
+    <li><strong>What changed this week?</strong><span>New brochures are read every hour and admin messages every day. Ask what's new.</span></li>
+    <li><strong>Where did that number come from?</strong><span>Every figure has its date and the brochure page or message behind it.</span></li>
   </ul>
 
   <div class="card" id="install">
@@ -228,9 +236,8 @@ footer p { margin: 4px 0; }
       <div>
         <p class="name">Agent</p>
         
-        <p class="price"><s>RM 25</s> RM 0 <small>/ month for 3 months</small></p>
-        <p class="after">RM 25 / month after</p>
-        <p class="note">Card on Stripe once your account is approved; charged only after the free 3 months. Cancel any time before and you pay nothing.</p>
+        <p class="price"><s>RM 25</s> RM 0</p>
+        <p class="after">For 3 months, then RM 25 / month. Cancel before and pay nothing.</p>
         
       </div>
       <ul>
